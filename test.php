@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-function automaticMailer($address, $pw, $to) {
+function automaticMailer($address, $pw, $to, $type=0) {
     $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -26,12 +26,32 @@ function automaticMailer($address, $pw, $to) {
 
     $mail->setFrom($address, 'Remainder');
     $mail->addAddress($address, $to);
-
     $mail->isHTML(true);
 
-    $mail->Subject = 'PHPMailer GMail SMTP test SUBJECT';
-    $mail->Body = 'This is a test message body';
-    $mail->AltBody = 'This is a plain-text message body test';
+    if($type === 0)
+    {
+        $mail->Subject = 'Automaic send remainder mail program start';
+        $mail->Body = 'Active program.';
+        $mail->AltBody = 'Active program.';
+    }
+    else if($type === 1)
+    {
+        $mail->Subject = 'Get up and Start your schedule';
+        $mail->Body = 'Let\'s have a fruitful day today! and check your TODO List.';
+        $mail->AltBody = 'Let\'s have a fruitful day today! and check your TODO List.';
+    }
+    else if($type === 2)
+    {
+        $mail->Subject = 'Remainder';
+        $mail->Body = 'Focus on your task.';
+        $mail->AltBody = 'Focus on your task.';
+    }
+    else if($type === 3)
+    {
+        $mail->Subject = 'Need to sleep';
+        $mail->Body = 'Check your schedule and TODO list for next day. And get to sleep for tomorrow';
+        $mail->AltBody = 'Check your schedule and TODO list for next day. And get to sleep for tomorrow';
+    }
 
     $mail->Send();
     echo "Message has heen sent";
