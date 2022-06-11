@@ -58,6 +58,8 @@ ASM is composed two function in the form of a PHP file.
 
 ## License
 
+MIT
+
 ## presentation video link
 
 
