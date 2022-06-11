@@ -46,7 +46,7 @@ ASM is composed two function in the form of a PHP file.
 
 | Function | Popose |
 | ------ | ------ |
-| automail.php | This file nclude automaticMailer() function and compose set for send mail  |
+| automail.php | This file include 'automaticMailer()' function and compose set for send mail  |
 | autosend_routine.php | This file make for execute cycle of send mail. If you want to run this program execute autosend_routine.php on server |
 
 ## Things to improve
